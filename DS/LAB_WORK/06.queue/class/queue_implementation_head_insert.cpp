@@ -1,4 +1,3 @@
-// implementation of queue by following tail insertion and head deletion
 #include <bits/stdc++.h>
 using namespace std;
 
