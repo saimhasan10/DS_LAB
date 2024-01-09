@@ -17,27 +17,11 @@ public:
 };
 
 // binary tree function
-Node *create_node(Node *parent, int val)
+Node *createNode(int val)
 {
-    if (parent == NULL)
-    {
-        Node *newNode = new Node(val);
-        return newNode;
-    }
-    else
-    {
-        if (val <= parent->val)
-        {
-            parent->left_child = create_node(parent->left_child, val);
-        }
-        else
-        {
-            parent->right_child = create_node(parent->right_child, val);
-        }
-    }
-    return parent;
+    Node *newNode = new Node(val);
+    return newNode;
 }
-
 // inorder print
 void in_order(Node *parent)
 {
@@ -54,9 +38,12 @@ int main()
 {
 
     Node *root = NULL;
-    root = create_node(root, 30);
-    root = create_node(root, 10);
-    root = create_node(root, 40);
+    root = createNode(5);
+    root->left_child = createNode(10);
+    root->right_child = createNode(2);
+    root->left_child->left_child = createNode(1);
+    root->left_child->right_child = createNode(50);
+    root->right_child->right_child = createNode(20);
 
     // inorder print
     in_order(root);

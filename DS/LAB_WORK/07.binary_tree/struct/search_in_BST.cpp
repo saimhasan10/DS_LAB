@@ -31,16 +31,25 @@ Node *create_node(Node *parent, int data)
     return parent;
 }
 
-// print the tree
-void in_order(Node *parent)
+// search in tree
+void search(Node *parent, int data)
 {
-    if (parent == nullptr)
+    if (parent == NULL)
     {
-        return;
+        cout << "Not found" << endl;
     }
-    in_order(parent->left_child);
-    cout << parent->data << " ";
-    in_order(parent->right_child);
+    else if (parent->data == data)
+    {
+        cout << "Found: " << parent->data << endl;
+    }
+    else if (data < parent->data)
+    {
+        search(parent->left_child, data);
+    }
+    else
+    {
+        search(parent->right_child, data);
+    }
 }
 
 int main()
@@ -57,7 +66,7 @@ int main()
 
     // serach
     cout << endl;
-    in_order(root);
+    search(root, 25);
     cout << endl;
 
     return 0;

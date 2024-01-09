@@ -10,26 +10,12 @@ struct Node
 };
 
 // create node
-Node *createNode(Node *parent, int data)
+Node *createNode(int data)
 {
-    if (parent == nullptr)
-    {
-        Node *newNode = new Node();
-        newNode->data = data;
-        return newNode;
-    }
-    else
-    {
-        if (data <= parent->data)
-        {
-            parent->left_child = createNode(parent->left_child, data);
-        }
-        else
-        {
-            parent->right_child = createNode(parent->right_child, data);
-        }
-    }
-    return parent;
+
+    Node *newNode = new Node();
+    newNode->data = data;
+    return newNode;
 }
 
 // print the tree
@@ -47,9 +33,12 @@ void in_order(Node *parent)
 int main()
 {
     Node *root = nullptr;
-    root = createNode(root, 89);
-    root = createNode(root, 96);
-    root = createNode(root, 90);
+    root = createNode(5);
+    root->left_child = createNode(10);
+    root->right_child = createNode(2);
+    root->left_child->left_child = createNode(1);
+    root->left_child->right_child = createNode(50);
+    root->right_child->right_child = createNode(20);
 
     // inorder print
     cout << endl;

@@ -69,14 +69,13 @@ int main()
 {
 
     Node *root = nullptr;
-    root = create_node(root, 91);
-    root = create_node(root, 92);
-    root = create_node(root, 93);
-    root = create_node(root, 94);
-    root = create_node(root, 95);
-    root = create_node(root, 96);
-    root = create_node(root, 97);
-    root = create_node(root, 98);
+    root = create_node(root, 20);
+    root = create_node(root, 30);
+    root = create_node(root, 10);
+    root = create_node(root, 25);
+    root = create_node(root, 60);
+    root = create_node(root, 40);
+    root = create_node(root, 65);
 
     cout << endl;
     cout << "Pre-order traverse: ";

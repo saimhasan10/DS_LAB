@@ -16,7 +16,7 @@ public:
     }
 };
 
-// binary search tree function
+// binary tree function
 Node *create_node(Node *parent, int val)
 {
     if (parent == NULL)
@@ -37,16 +37,26 @@ Node *create_node(Node *parent, int val)
     }
     return parent;
 }
-// inorder
-void inorder(Node *parent)
+
+// search in tree
+void search(Node *parent, int val)
 {
     if (parent == NULL)
     {
-        return;
+        cout << "Not found" << endl;
     }
-    inorder(parent->left_child);
-    cout << parent->val << " ";
-    inorder(parent->right_child);
+    else if (parent->val == val)
+    {
+        cout << "Found: " << parent->val << endl;
+    }
+    else if (val < parent->val)
+    {
+        search(parent->left_child, val);
+    }
+    else
+    {
+        search(parent->right_child, val);
+    }
 }
 
 int main()
@@ -62,7 +72,7 @@ int main()
     root = create_node(root, 65);
 
     // serach
-    inorder(root);
+    search(root, 25);
 
     return 0;
 }
